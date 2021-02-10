@@ -13,11 +13,18 @@ function getParsedTodoListFromLocalStorage() {
     }
 }
 
-
-
-
-
 let todoList = getParsedTodoListFromLocalStorage();
+
+function getTodosCount(){
+    let stringifiedTodosCount = localStorage.getItem("todosCount");
+    let parsedTodosCount = JSON.parse(stringifiedTodosCount);
+    if (parsedTodosCount==null){
+        return 0;
+    }
+    else{
+        return parsedTodosCount;
+    }
+}
 
 let todosCount = todoList.length;
 
@@ -39,9 +46,11 @@ function createAndAppendTodo(todo) {
     inputElement.setAttribute("type", "checkbox");
     inputElement.classList.add("checkbox-input");
     inputElement.id = checkboxId;
+    inputElement.checked = todo.is_checked;
     inputElement.onclick = function () {
         let labelElement = document.getElementById(labelId);
         labelElement.classList.toggle('checked');
+        todo.is_checked = inputElement.checked;
     }
     todoElement.appendChild(inputElement);
 
@@ -57,6 +66,10 @@ function createAndAppendTodo(todo) {
     labelElement.id = labelId;
     labelElement.textContent = todo.text;
     labelContainer.appendChild(labelElement);
+    if(todo.is_checked){
+        let labelElement = document.getElementById(labelId);
+        labelElement.classList.toggle('checked');
+    }
 
     // creating a delete icon container element and appending it to label container div
     let deleteIconContainer = document.createElement("div");
@@ -68,6 +81,14 @@ function createAndAppendTodo(todo) {
     deleteIcon.classList.add("far", "fa-trash-alt", "delete-icon");
     deleteIcon.onclick = function () {
         todoItemsContainer.removeChild(todoElement);
+        todoList.splice(todoList.findIndex(function (eachItem){
+            if(eachItem===todo){
+                return true;
+            }
+            else{
+                return false;
+            }
+        }), 1);
     }
     deleteIconContainer.appendChild(deleteIcon);
 }
@@ -85,7 +106,8 @@ function onAddTodo() {
 
     let newTodo = {
         text: userInputValue,
-        uniqueNo: todosCount
+        uniqueNo: todosCount,
+        is_checked: false
     };
 
     todoList.push(newTodo);
@@ -96,6 +118,7 @@ function onAddTodo() {
 function onSaveTodo(){
     let stringifiedTodoList = JSON.stringify(todoList);
     localStorage.setItem("todoList", stringifiedTodoList);
+    localStorage.setItem("todosCount", JSON.stringify(todosCount));
 }
 
 
