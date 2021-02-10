@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo</title>
+
+    <link rel="stylesheet" type="text/css" href="./styles.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/5f59ca6ad3.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="main-bg-container d-flex flex-column">
+        <h1 class="main-heading">Todos</h1>
+        <div class="create-task-container m-3">
+            <h1 class="create-task-heading"><span class="create-task-heading-bold">Create</span> Task</h1>
+            <input type="text" class="todo-user-input" placeholder="What's your new task? Add it here." id="todoUserInput"/><br />
+            <button class="button" id="addTodoButton" >Add</button>
+        </div>
+        <div class="todo-task-container m-3">
+            <h1 class="todo-task-heading"><span class="todo-task-heading-bold">My</span> Tasks</h1>
+            <ul class="todo-items-container" id="todoItemsContainer">
+                <!-- <li class="todo-item-container d-flex flex-row">
+                    <input type="checkbox" id="checkboxInput" class="checkbox-input" />
+                    <div class="d-flex flex-row label-container">
+                        <label class="checkbox-label" for="checkboxInput">
+                            Learn HTML
+                        </label>
+                        <div class="delete-icon-container">
+                            <i class="far fa-trash-alt delete-icon"></i>
+                        </div>
+                    </div>
+                </li> -->
+            </ul>
+            <button class="button" id="saveTodoButton" >Save</button>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="./main.js"></script>
+</body>
+
+</html>
