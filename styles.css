@@ -2,7 +2,7 @@
 .main-bg-container {
     padding: 20px;
     background-color: #f9fbfe;
-    min-height: 100vh;
+    min-height: 85vh;
     font-family: "Roboto";
 }
 
@@ -98,4 +98,21 @@
 
 .checked {
     text-decoration: line-through;
+}
+
+.footer{
+    background-color: black;
+    min-height: 15vh;
+    text-align: center;
+}
+.footer-text {
+    color: white;
+    font-weight: bold;
+    font-style: "Roboto";
+    font-size: 16px;
+}
+
+.footer-icon {
+    color: white;
+    font-size: 26px;
 }
