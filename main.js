@@ -116,6 +116,9 @@ function onAddTodo() {
 }
 
 function onSaveTodo(){
+    todoList.sort(function(a, b){
+        return a.is_checked-b.is_checked;
+    });
     let stringifiedTodoList = JSON.stringify(todoList);
     localStorage.setItem("todoList", stringifiedTodoList);
     localStorage.setItem("todosCount", JSON.stringify(todosCount));
