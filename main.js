@@ -126,8 +126,7 @@ function onSaveTodo(){
 
 
 
-
-
+// Actual execution starts here
 for (let todo of todoList) {
     createAndAppendTodo(todo);
 }
